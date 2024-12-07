@@ -11,7 +11,9 @@ const contactsSlice = createSlice({
         text: "",
         whatsapp: "",
         telegram: "",
-        instagram: ""
+        instagram: "",
+        youtube: "",
+        aparat: "",
     },
     reducers: {
         updateContacts: (state, action) => {
@@ -24,6 +26,8 @@ const contactsSlice = createSlice({
             state.whatsapp = action.payload.whatsapp;
             state.telegram = action.payload.telegram;
             state.instagram = action.payload.instagram;
+            state.youtube = action.payload.youtube;
+            state.aparat = action.payload.aparat
         }
     }
 })

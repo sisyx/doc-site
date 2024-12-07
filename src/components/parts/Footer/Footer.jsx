@@ -17,7 +17,7 @@ import { HashLink } from 'react-router-hash-link';
 
 
 function Footer() {
-  const { address, tel, email, instagram } = useSelector((state) => state.contacts);
+  const { address, tel, email, instagram, youtube, aparat } = useSelector((state) => state.contacts);
 
   return (
     <footer
@@ -37,7 +37,7 @@ function Footer() {
                 <div className="col-xxl-6 col-lg-6 col-xl-5">
                   <ul className="subscription-icon d-flex flex-wrap">
                     <li>
-                      <Link to="#">
+                      <Link to={youtube}>
                         <FontAwesomeIcon icon={faYoutube} />
                       </Link>
                     </li>
@@ -47,7 +47,7 @@ function Footer() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="#">
+                      <Link to={aparat}>
                         <SiAparat />
                       </Link>
                     </li>
