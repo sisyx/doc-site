@@ -10,6 +10,8 @@ import convertToJalali from '../../../../utils/convertToJalali';
 import toFarsiNumber from '../../../../utils/toFarsiNumber';
 import { Helmet } from 'react-helmet-async';
 import SideBarVideoDetails from '../SideBarVideoDetails/SideBarVideoDetails';
+import { Link } from 'react-router-dom';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 function VideoDetailsSection() {
 
@@ -56,16 +58,20 @@ function VideoDetailsSection() {
                                                 <div
                                                     onClick={() => setVideoState(cur => ({...cur, videoMode: true}))}
                                                      style={{
-                                                        color: "white",
-                                                        backgroundColor: "black",
-                                                        borderRadius: "1rem",
-                                                        padding: "1rem",
+                                                        // color: "white",
+                                                        // backgroundColor: "black",
+                                                        // borderRadius: "1rem",
+                                                        // padding: "1rem",
                                                         position: "absolute",
                                                         top: "50%",
                                                         left: "50%",
                                                         transform: "translate(-50%, -50%)",
                                                         cursor: "pointer"
-                                                    }}>پخش ویدیو</div>
+                                                    }}>
+                                                                                        <Link className="play_btn venobox" data-autoplay="true" data-vbtype="video" to="#">
+                                                        <FontAwesomeIcon icon={faPlay} aria-hidden="true" />
+                                                    </Link>
+                                                    </div>
                                                 <img loading='lazy' src={itemVideoData?.image1} alt="blog img" className="img-fluid w-100" />
                                             </div>
                                         }

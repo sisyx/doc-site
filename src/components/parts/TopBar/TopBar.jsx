@@ -4,13 +4,12 @@ import { faFacebookF, faTwitter, faYoutube, faGooglePlusG, faInstagram } from "@
 import { faPhoneAlt, faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
 import { SiAparat } from 'react-icons/si';
-import useGetData from '../../../hooks/useGetData';
 import toFarsiNumber from '../../../utils/toFarsiNumber';
+import { useSelector } from 'react-redux';
 
 function TopBar({isVisibleTopBar}) {
-
-    const { data: contactData, isPending } = useGetData(["Get_Contact"], "ContactUs.aspx");
-
+    const { address, map_lat, map_long, tel, email, instagram } = useSelector((state) => state.contacts);
+    
     return (
         <section 
          className={`topbar ${isVisibleTopBar ? "visible" : "hidden"}`} 
@@ -20,26 +19,26 @@ function TopBar({isVisibleTopBar}) {
                     <div className="col-xl-9 col-lg-9 d-none d-md-block">
                         <ul className="topbar_link d-flex flex-wrap">
                             <li>
-                                <Link to={`tel:${contactData?.[0]?.tel}`}>
+                                <Link to={`tel:${tel}`}>
                                     <FontAwesomeIcon icon={faPhoneAlt} /> 
-                                    {contactData?.[0]?.tel && (
-                                        toFarsiNumber(contactData[0].tel)
+                                    {tel && (
+                                        toFarsiNumber(tel)
                                     )}
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`mailto:${contactData?.[0]?.email}`}>
-                                    <FontAwesomeIcon icon={faEnvelope} /> {contactData?.[0]?.email}
+                                <Link to={`mailto:${email}`}>
+                                    <FontAwesomeIcon icon={faEnvelope} /> {email}
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    to={`https://www.google.com/maps/place/@${contactData?.[0]?.map_lat},${contactData?.[0]?.map_long},17.5z/`}
+                                    to={`https://www.google.com/maps/place/@${map_lat},${map_long},17.5z/`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <FontAwesomeIcon icon={faMapMarkerAlt} />
-                                    {contactData?.[0]?.address}
+                                    {address}
                                 </Link>
                             </li>
                         </ul>
@@ -52,7 +51,7 @@ function TopBar({isVisibleTopBar}) {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={contactData?.[0]?.instagram}>
+                                <Link to={instagram}>
                                     <FontAwesomeIcon icon={faInstagram} />
                                 </Link>
                             </li>

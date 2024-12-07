@@ -22,9 +22,6 @@ function AboutSection() {
                             </div>
                             <div className="about_img_2">
                                 <img src="images/about_img2.jpg" alt="about img" className="img-fluid w-100" />
-                                <Link className="play_btn venobox" data-autoplay="true" data-vbtype="video" to="#">
-                                    <FontAwesomeIcon icon={faPlay} aria-hidden="true" />
-                                </Link>
                             </div>
                         </div>
                     </div>
@@ -48,7 +45,7 @@ function AboutSection() {
                             <li>پزشکان وظیفه</li>
                             <li>فوریت های پزشکی ۲۴/۷</li>
                         </ul>
-                        <Link to="/about-us" className="common_btn">مشاهده همه</Link>
+                        {/* <Link to="/about-us" className="common_btn">مشاهده همه</Link> */}
                     </div>
                 </div>
             </div>

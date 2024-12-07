@@ -11,14 +11,12 @@ function FaqSection() {
     const { data: faqData, isPending } = useGetData(["Get_Faq"], "FAQ.aspx");
 
     return (
-        <section className="faq pt_100 xs_pt_70 pb_100 xs_pb_70" style={{ direction: "rtl" }}>
-            <div className="container">
-                
+        <section id='home_faq' className="faq pt_100 xs_pt_70 pb_100 xs_pb_70" style={{ direction: "rtl" }}>
+            <div className="container"> 
                 <SectionHeader
                     title="سوالات خود را از ما بپرسید"
                     subTitle="سوالات متداول"
                 />
-
                 <div className="row">
                     <div className="col-xl-7 col-lg-6 wow fadeInLeft" data-wow-duration="1s">
                         <div className="faq_accordion accordion accordion-flush" id="accordionFlushExample">

@@ -11,13 +11,17 @@ import '@/styles/animate.css'
 import '@/styles/custom_spacing.css'
 import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import store from './redux/store.js';
+import { Provider } from 'react-redux'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <HelmetProvider>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </HelmetProvider>
     </BrowserRouter>
   </React.StrictMode>

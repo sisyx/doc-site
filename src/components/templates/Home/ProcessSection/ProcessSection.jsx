@@ -7,7 +7,7 @@ function ProcessSection() {
         <section className="process pt_100 xs_pt_70 pb_95 xs_pb_65" style={{
             background: "url(images/work_bg.jpg)", direction: "rtl"
         }} >
-            <div className="container process_shape">
+            <div id='home_contact' className="container process_shape">
                 <SectionHeader
                     title="راه های ارتباط با ما"
                     subTitle="ارتباط با ما"

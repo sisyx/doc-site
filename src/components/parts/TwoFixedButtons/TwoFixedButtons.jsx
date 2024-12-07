@@ -4,11 +4,11 @@ import { faPhone, faCommentDots } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import useGetData from '../../../hooks/useGetData';
 import AnswersModal from '../../modules/CustomizeModal/AnswersModal';
+import { useSelector } from 'react-redux';
 
 
 function TwoFixedButtons() {
-
-    const { data: contactData } = useGetData(["Get_Contact"], "ContactUs.aspx");
+    const { tel } = useSelector((state) => state.contacts);
     const [showAnswersModal, setShowAnswersModal] = useState(false);
 
 
@@ -19,7 +19,7 @@ function TwoFixedButtons() {
     return (
         <>
             <div className="bottom_section_fixed d-none d-md-flex">
-                <Link id="phone_call" to={`tel:${contactData?.[0]?.tel}`}>
+                <Link id="phone_call" to={`tel:${tel}`}>
                     <span className="icons_bottom_section">
                         <FontAwesomeIcon icon={faPhone} />
                     </span>
@@ -34,7 +34,7 @@ function TwoFixedButtons() {
             </div>
 
             <div className="bottom_section_fixed_mobile d-flex d-md-none">
-                <Link id="phone_call_mobile" to={`tel:${contactData?.[0]?.tel}`}>
+                <Link id="phone_call_mobile" to={`tel:${tel}`}>
                     <span className="icons_bottom_section-mobile">
                         <FontAwesomeIcon icon={faPhone} />
                     </span>

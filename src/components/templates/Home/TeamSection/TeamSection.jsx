@@ -9,7 +9,7 @@ function TeamSection() {
     const { data: teamData, isPending } = useGetData(["Get_Team"], "Team.aspx");
 
     return (
-        <section className="team pt_100 xs_pt_70 pb_100 xs_pb_70">
+        <section id='home_team' className="team pt_100 xs_pt_70 pb_100 xs_pb_70">
             <div className="container">
                 <SectionHeader 
                 title="با پزشک متخصص ما آشنا شوید" 

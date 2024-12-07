@@ -61,22 +61,8 @@ function MainMenu({isMenuSticky}) {
                                     صفحات <FontAwesomeIcon icon={faPlus} />
                                 </Link>
                                 <ul className="dropdown">
-                                    <li><Link to="/become_doctor">دکتر شوید</Link></li>
-                                    <li><Link to="/blog_details">جزئیات وبلاگ</Link></li>
-                                    <li><Link to="/service_details">جزئیات خدمات</Link></li>
                                     <li><Link to="/doctors">دکتر</Link></li>
-                                    <li><Link to="/doctor_details">جزئیات دکتر</Link></li>
                                     <li><Link to="/gallary">گالری</Link></li>
-                                    <li><Link to="/pricing">خرید پلن</Link></li>
-                                    <li><Link to="/payment">پرداخت</Link></li>
-                                    <li><Link to="/dashboard">داشبورد</Link></li>
-                                    <li><Link to="/error">صفحه ۴۰۴</Link></li>
-                                    <li><Link to="/faq">سوالات متداول</Link></li>
-                                    <li><Link to="/sign_in">ورود</Link></li>
-                                    <li><Link to="/sing_up">ثبت نام</Link></li>
-                                    <li><Link to="/forgot_password">فراموشی رمز عبور</Link></li>
-                                    <li><Link to="/privacy_policy">سیاست حفظ حریم خصوصی</Link></li>
-                                    <li><Link to="/terms_condition">قوانین و مقررات</Link></li>
                                 </ul>
                             </li>
                             <li className="nav-item">
