@@ -1,6 +1,6 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { Link } from 'react-router-dom';
 
@@ -26,7 +26,8 @@ const customStyles = {
   },
 };
 
-function CustomizeModal({ modalIsOpen, closeModal, items , link , categoryId }) {
+function CustomizeModal({ modalIsOpen, closeModal, items , link , categoryId, image = null }) {
+
   return (
     <ReactModal
       closeTimeoutMS={200}
@@ -42,9 +43,14 @@ function CustomizeModal({ modalIsOpen, closeModal, items , link , categoryId }) 
         </button>
         <ul className='parent_list_item_category'>
           {items?.map(data => (
-            <li key={data.id}>
-              <Link to={`/${link}/${categoryId}/${data.id}`}>{data.title}</Link>
-            </li>
+            <Link to={`/${link}/${categoryId}/${data.id}`}>
+              <li key={data.id}>
+                {
+                  !!image ? <img src={image} alt="" /> : ""
+                }
+                <div >{data.title}</div>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

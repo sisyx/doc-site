@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import SearchBar from './SearchBar';
 
 
 function MainMenu({isMenuSticky}) {
@@ -106,17 +107,7 @@ function MainMenu({isMenuSticky}) {
             </nav>
 
             {/* search bar */}
-            <div className={`menu_search ${isShowSearchBar && "show_search"}`}>
-                <form>
-                    <input type="text" placeholder="کلمه مورد نظر را وارد نمایید" />
-                    <button className="common_btn" type="submit">
-                        جستجو نمایید
-                    </button>
-                    <span onClick={() => setIsShowSearchBar(false)} className="close_search">
-                        <FontAwesomeIcon icon={faTimes} />
-                    </span>
-                </form>
-            </div>
+            <SearchBar isVisisble={isShowSearchBar} closeSearchBar={() => setIsShowSearchBar(false)} />
         </>
     )
 }

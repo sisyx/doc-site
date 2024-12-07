@@ -10,6 +10,8 @@ import ServicesDetails from "./pages/ServicesDetails/ServicesDetails";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
 import Doctors from "./pages/Doctors/Doctors";
 import DoctorsDetails from "./pages/DoctorsDetails/DoctorsDetails";
+import VideoDetails from "./pages/Video/VideoDetails";
+import Videos from "./pages/Videos/Videos";
 
 
 const routes = [
@@ -48,6 +50,18 @@ const routes = [
         element: (
             <BlogDetails />
         ),
+    },
+    {
+        path: "/videos",
+        element: (
+            <Videos />
+        )
+    },
+    {
+        path: "/video/:categoryid/:id",
+        element: (
+            <VideoDetails />
+        )
     },
     {
         path: "/contact-us",
