@@ -15,7 +15,7 @@ function BlogDetailsSection() {
 
     const { categoryid, id } = useParams();
 
-    const { data: itemsCategoryBlog, isPending, isError } = useGetData(["Get_ItemsCategoryBlog"], `Blog.aspx?CategoryID=${+categoryid}`);
+    const { data: itemsCategoryBlog, isPending, isError } = useGetData(["Get_ItemsCategoryBlog", id, categoryid], `Blog.aspx?CategoryID=${+categoryid}`);
     const [itemBlogData, setItemBlogData] = useState(null)
 
     useEffect(() => {

@@ -57,7 +57,6 @@ function BlogBox(props) {
                 items={itemCategoryBlogData}
                 modalIsOpen={showModal}
                 closeModal={closeModal}
-                image={props.img}
                 />
         </>
     );

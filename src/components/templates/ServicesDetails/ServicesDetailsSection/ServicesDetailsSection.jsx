@@ -13,7 +13,7 @@ import { Helmet } from 'react-helmet-async'
 
 function ServicesDetailsSection() {
     const { categoryid, id } = useParams();
-    const { data: itemsCategoryService, isPending, isError } = useGetData(["Get_ItemsCategoryService"], `Service.aspx?CategoryID=${+categoryid}`);
+    const { data: itemsCategoryService, isPending, isError } = useGetData(["Get_ItemsCategoryService", categoryid, id, categoryid, id], `Service.aspx?CategoryID=${+categoryid}`);
     const { data: listDidgahData } = useGetData(["Get_ListDidgah"], "ListDidgah.aspx");
     const [itemServiceData, setItemServiceData] = useState(null)
     const [detailsReplyUser, setDeatilsReplyUser] = useState(null);
@@ -66,6 +66,14 @@ function ServicesDetailsSection() {
                                         <h3>{itemServiceData?.title}</h3>
                                         <p>{itemServiceData?.description}</p>
                                     </div>
+                                    <div id="symptoms">
+                                        <h3>علائم</h3>
+                                        <p>{itemServiceData?.alaem	}</p>
+                                    </div>
+                                    <div id="treatments">
+                                        <h3>درمان ها</h3>
+                                        <p>{itemServiceData?.darman}</p>
+                                    </div>
                                     {/* <div id="treatments">
                                         <ul>
                                             <li>به طور چشمگیری زیرساخت های جایگزین را از طریق سازگار با عقب گرد ایجاد کنید.</li>
@@ -91,9 +99,9 @@ function ServicesDetailsSection() {
                                 </div>
 
                                 <div className="row">
-                                    <ImageServices image={itemServiceData?.image1}/>
-                                    <ImageServices image={itemServiceData?.image2} />
-                                    <ImageServices  image={itemServiceData?.image3}/>
+                                    {
+                                    [itemServiceData?.image1, itemServiceData?.image2, itemServiceData?.image3].map(image => !!image ? <ImageServices image={image}/> : "" )
+                                    }
                                 </div>
 
                                 <div className="comment_area">
