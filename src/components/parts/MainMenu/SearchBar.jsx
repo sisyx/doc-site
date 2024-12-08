@@ -92,7 +92,7 @@ function SearchBar({isVisisble, closeSearchBar}) {
                             {
                                 servicesLoading ? <div>در حال بارگذاری سرویسها</div>
                                 : filteredServices?.length ? filteredServices?.map(({id, title, categoryid}) => {
-                                    return <Link to={`/services/${id}/${categoryid}`} className={styles.sidebar_xxxxxxxxxxxx__blog}>{title}</Link>
+                                    return <Link to={`/services/${categoryid}/${id}`} className={styles.sidebar_xxxxxxxxxxxx__blog}>{title}</Link>
                                 })
                                 : <div>سرویسی یافت نشد</div>
                             }
