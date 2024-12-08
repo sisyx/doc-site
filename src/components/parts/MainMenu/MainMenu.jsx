@@ -10,6 +10,20 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import SearchBar from './SearchBar';
 
+const links = [
+    {
+        text: "دکتر",
+        to: "/doctors"
+    },
+    {
+        text: "گالری",
+        to: "/gallary"
+    },
+    {
+        text: "ویدیوها",
+        to: "/videos"
+    },
+]
 
 function MainMenu({isMenuSticky}) {
 
@@ -61,8 +75,9 @@ function MainMenu({isMenuSticky}) {
                                     صفحات <FontAwesomeIcon icon={faPlus} />
                                 </Link>
                                 <ul className="dropdown">
-                                    <li><Link to="/doctors">دکتر</Link></li>
-                                    <li><Link to="/gallary">گالری</Link></li>
+                                    {
+                                        links.map(({text, to}) => <li><Link to={to}>{text}</Link></li>)
+                                    }
                                 </ul>
                             </li>
                             <li className="nav-item">
