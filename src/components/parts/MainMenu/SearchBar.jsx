@@ -16,9 +16,6 @@ function SearchBar({isVisisble, closeSearchBar}) {
     const { data: videosData, isPending: videosLoading, isError: videosError } = useGetData(["Get_Searchvideos"], "Video.aspx");
     const { data: servicesData, isPending: servicesLoading, isError: servicesError } = useGetData(["Get_SearchServices"], "Service.aspx");
 
-    // Video.aspx
-    // https://dr-radfar.ir/API/Service.aspx
-
     const filteredBlogs = blogsData?.filter(blog => blog.title.includes(searchState.phrase));
     const filteredvidoes = videosData?.filter(video => video.title.includes(searchState.phrase));
     const filteredServices = servicesData?.filter(service => service.title.includes(searchState.phrase));
@@ -30,7 +27,7 @@ function SearchBar({isVisisble, closeSearchBar}) {
     return (
         <div onClick={closeSearchBar} className={`menu_search ${isVisisble && "show_search"}`}>
             <div className="position-relative">
-                <form onClick={e => e.stopPropagation()}>
+                <form onClick={e => e.stopPropagation()} onSubmit={e => e.preventDefault()}>
                     <input 
                         style={{borderBottomLeftRadius: "0", borderBottomRightRadius: "0"}} 
                         type="text" 
@@ -38,9 +35,9 @@ function SearchBar({isVisisble, closeSearchBar}) {
                         onChange={handleInputChange} 
                         placeholder="کلمه مورد نظر را وارد نمایید" 
                         />
-                    <button className="common_btn" type="submit">
+                    {/* <button className="common_btn" type="submit">
                         جستجو نمایید
-                    </button>
+                    </button> */}
                     <span onClick={() => closeSearchBar()} className="close_search">
                         <FontAwesomeIcon icon={faTimes} />
                     </span>
@@ -102,7 +99,6 @@ function SearchBar({isVisisble, closeSearchBar}) {
                         </div>
                         : ""
                     }
-                    {/* services */}
                     {/* if nothing was found */}
                     {
                         (!filteredBlogs?.length && !filteredvidoes?.length && !filteredServices?.length && searchState.phrase.length) ?

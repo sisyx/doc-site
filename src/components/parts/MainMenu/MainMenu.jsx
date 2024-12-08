@@ -108,7 +108,9 @@ function MainMenu({isMenuSticky}) {
             </nav>
 
             {/* search bar */}
-            <SearchBar isVisisble={isShowSearchBar} closeSearchBar={() => setIsShowSearchBar(false)} />
+            {
+                isShowSearchBar ? <SearchBar isVisisble={isShowSearchBar} closeSearchBar={() => setIsShowSearchBar(false)} /> : ""
+            }
         </>
     )
 }
