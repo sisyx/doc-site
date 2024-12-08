@@ -12,7 +12,7 @@ import VideoBox from '../../components/modules/VideoBox/VideoBox'
 
 function Videos() {
 
-  const { data: categoryVideoData, isPending, isError } = useGetData(["Get_CategoryVideo"], "Video.aspx");
+  const { data: categoryVideoData, isPending, isError } = useGetData(["Get_CategoryVideo"], "CategoryVideo.aspx");
   const [searchParams] = useSearchParams();
   const countData = 9;
   const lastData = (searchParams.get("page") || 1) * countData

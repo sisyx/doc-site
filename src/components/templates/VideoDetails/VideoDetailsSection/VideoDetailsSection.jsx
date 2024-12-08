@@ -17,10 +17,11 @@ function VideoDetailsSection() {
 
     const [videoState, setVideoState] = useState({
         videoMode: false,
-    })
+    });
+
     const { categoryid, id } = useParams();
 
-    const { data: itemsCategoryVideo, isPending, isError } = useGetData(["Get_ItemsCategoryVideo"], `Video.aspx?CategoryID=${+categoryid}`);
+    const { data: itemsCategoryVideo, isPending, isError } = useGetData(["Get_ItemsCategoryVideo", id, categoryid], `Video.aspx?CategoryID=${+categoryid}`);
     const [itemVideoData, setItemVideoData] = useState(null)
 
     useEffect(() => {
@@ -58,17 +59,13 @@ function VideoDetailsSection() {
                                                 <div
                                                     onClick={() => setVideoState(cur => ({...cur, videoMode: true}))}
                                                      style={{
-                                                        // color: "white",
-                                                        // backgroundColor: "black",
-                                                        // borderRadius: "1rem",
-                                                        // padding: "1rem",
                                                         position: "absolute",
                                                         top: "50%",
                                                         left: "50%",
                                                         transform: "translate(-50%, -50%)",
                                                         cursor: "pointer"
                                                     }}>
-                                                                                        <Link className="play_btn venobox" data-autoplay="true" data-vbtype="video" to="#">
+                                                    <Link className="play_btn venobox" data-autoplay="true" data-vbtype="video" to="#">
                                                         <FontAwesomeIcon icon={faPlay} aria-hidden="true" />
                                                     </Link>
                                                     </div>

@@ -7,7 +7,7 @@ import useGetData from '../../../hooks/useGetData';
 function VideoBox(props) {
 
     const [showModal, setShowModal] = useState(false);
-    const { data: itemCategoryBlogData } = useGetData(["Get_ItemsCategoryBlog"], `Blog.aspx?CategoryID=${props.id}`);
+    const { data: itemCategoryBlogData } = useGetData(["Get_ItemsCategoryBlog"], `Video.aspx?CategoryID=${props.id}`);
 
 
 
@@ -20,7 +20,7 @@ function VideoBox(props) {
             <div style={{cursor: "pointer"}} className="col-xl-4 col-md-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                 <div onClick={() => setShowModal(true)} className="single_blog">
                     <div className="blog_img">
-                        <img src={props.image1} alt="Video img" className="img-fluid w-100" />
+                        <img src={props.img} alt="Video img" className="img-fluid w-100" />
                     </div>
                     <div className="blog_text">
                         <ul className="d-flex flex-wrap blog_date">
@@ -53,7 +53,6 @@ function VideoBox(props) {
                 items={itemCategoryBlogData}
                 modalIsOpen={showModal}
                 closeModal={closeModal}
-                image={props.image1} 
                 />
         </>
     );
